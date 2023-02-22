@@ -22,32 +22,32 @@ public final class CacheManager: CacheManagerProtocol {
     public func setValue<T: Codable>(
         _ value: T,
         forKey key: String,
-        identifier: CacheServiceIdentifier
+        service: CacheServiceIdentifier
     ) -> Bool {
-        guard let service = getService(identifier) else { return false }
+        guard let service = getService(service) else { return false }
         return service.setValue(value, forKey: key)
     }
 
     public func getValue<T: Codable>(
         forKey key: String,
-        identifier: CacheServiceIdentifier
+        service: CacheServiceIdentifier
     ) -> T? {
-        guard let service = getService(identifier) else { return nil }
+        guard let service = getService(service) else { return nil }
         return service.getValue(forKey: key)
     }
 
     @discardableResult
     public func removeObject(
         forKey key: String,
-        identifier: CacheServiceIdentifier
+        service: CacheServiceIdentifier
     ) -> Bool {
-        guard let service = getService(identifier) else { return false }
+        guard let service = getService(service) else { return false }
         return service.removeObject(forKey: key)
     }
 
     private func getService(
-        _ identifier: CacheServiceIdentifier
+        _ service: CacheServiceIdentifier
     ) -> CacheService? {
-        services.first(where: { type(of: $0).identifier == identifier })
+        services.first(where: { type(of: $0).identifier == service })
     }
 }

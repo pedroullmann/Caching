@@ -1,10 +1,13 @@
 # Caching
 
+## Requirements
+iOS 14.0 or later
+
 ## Adding to your project
 
 Add the following to the `dependencies` array in your "Package.swift" file:
 
-     .package(url: "https://github.com/pedroullmann/Caching.git", from: Version("1.0.0"))
+     .package(url: "https://github.com/pedroullmann/Caching.git", from: Version("1.0.1"))
 
 ## Cache Services
 
@@ -27,11 +30,11 @@ let manager = CacheManager.shared
 let data: CodableData = Mock()
 
 /// Save (discardable result)
-manager.setValue(data, forKey: "Key", identifier: .memory)
+manager.setValue(data, forKey: "Key", service: .memory)
 
 /// Restore
-let dataInMemory: CodableData? = manager.getValue(forKey: "Key", identifier: .memory)
+let dataInMemory: CodableData? = manager.getValue(forKey: "Key", service: .memory)
 
 /// Remove (discardable result)
-manager.removeObject(forKey: "Key", identifier: .memory)
+manager.removeObject(forKey: "Key", service: .memory)
 ```

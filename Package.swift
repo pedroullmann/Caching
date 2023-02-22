@@ -16,6 +16,12 @@ let package = Package(
                 "Caching-Interface"
             ]
         ),
+        .testTarget(
+            name: "CachingTests",
+            dependencies: [
+                "Caching"
+            ]
+        ),
         .target(
             name: "Caching-Interface",
             dependencies: []
