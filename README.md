@@ -27,7 +27,7 @@ let manager = CacheManager.shared
 let data: CodableData = Mock()
 
 /// Save (discardable result)
-manager.setValue(data, forKey: "key", identifier: .memory)
+manager.setValue(data, forKey: "Key", identifier: .memory)
 
 /// Restore
 let dataInMemory: CodableData? = manager.getValue(forKey: "Key", identifier: .memory)
